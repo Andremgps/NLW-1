@@ -28,7 +28,7 @@ namespace backend
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(options => options.UseSqlite(
@@ -42,10 +42,7 @@ namespace backend
             services.AddScoped<IItemRepo, SqlItemRepo>();
             services.AddScoped<IPointRepo, SqlPointRepo>();
 
-            services.AddCors(c =>  
-            {  
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());  
-            });  
+            services.AddCors();
 
         }
 
@@ -56,21 +53,27 @@ namespace backend
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin();
+                options.AllowAnyMethod();
+                options.AllowAnyHeader();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseCors(options => options.AllowAnyOrigin());
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });            
+            });
 
             //Servindo os arquivos de imagem
-            app.UseStaticFiles(new StaticFileOptions{
+            app.UseStaticFiles(new StaticFileOptions
+            {
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Uploads")),
                 RequestPath = "/Uploads"
             });

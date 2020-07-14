@@ -434,3 +434,7 @@ $RECYCLE.BIN/
 
 # Database SQLite
 database.sqlite
+
+#Uploads
+Uploads/*
+!Uploads/.gitkeep
