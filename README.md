@@ -5,7 +5,9 @@
 
 # Ecoleta
 
-> O Ecoleta é uma aplicação (web e mobile) com o intuito de facilitar a forma de pessoas encontrarem um ponto de coleta de resíduos.
+> O Ecoleta é uma aplicação (web e mobile) com o intuito de facilitar a forma de pessoas encontrarem um ponto de coleta de resíduos. </br>
+Como eu particularmente já tenho um bom conhecimento em node e nas funcionalidades do knex resolvi fazer o backend em uma linguagem desconhecida.</br>
+Portanto o diferencial neste projeto é o Backend, feito em Asp.Net Core com "Repository Pattern" e usando "Data Transfer Objects" para manter algo mais profissional.
 
 <div align="center"> <img src=".github/web-preview.png" alt="Preview home web"></div>
 
@@ -44,7 +46,7 @@ Caso queira reproduzir o projeto localmente:
 ### Backend
 
 O Backend foi feito com Asp.Net Core usando EntityFramework, portanto é necessário ter o .NET Core CLI instalado.</br>
-Tendo o .NET Core CLI instalado basta executar o seguinte os comandos na pasta do backend:
+Tendo o .NET Core CLI instalado basta executar os seguintes comandos na pasta do backend:
 
 ```
 dotnet restore
